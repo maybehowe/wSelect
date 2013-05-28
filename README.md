@@ -2,7 +2,8 @@
 
 A jQuery plugin for fully customizable and clean looking select boxes.  These are `div` based select boxes that will allow us to do additional things like adding icons to our options.
 
-[View the wSelect demo here](http://wselect.websanova.com)
+* [View the wSelect demo](http://wselect.websanova.com)
+* [Download the lastest version of wSelect](https://github.com/websanova/wSelect/tags)
 
 ## Related Plugins
 
