@@ -80,26 +80,6 @@ Not setting the attribute at all will leave no indent and will appear normally.
 <option value="example">Example</option>
 ```
 
-### labels
-
-You can optionally set a label for the select box using the `data-label` attribute.
-
-```html
-<select data-label="Countries:">
-    <option></option>
-</select>
-```
-
-The position of the label can be controlled by setting the `labelPosition` option to either `left` or `top`.
-
-```js
-$.fn.wSelect.defaults = {
-    ...
-    labelPosition: 'left',
-    ...
-};
-```
-
 ### size
 
 Setting the size can be done by using the global defaults or setting the attribute `size` on the element directly.
@@ -140,6 +120,13 @@ If you want a dynamic width for the `select` only set the `min-width` and `max-w
 }
 ```
 
+### CSS labels
+
+Global CSS labels are also available in this plugin and can be used by setting an adding the class name `wLabel-left`, `wLabel-top` or `wLabel-left-top` to an element.
+
+```html
+<label class="wLabel-left">Label:</label>
+```
 
 ## Resources
 

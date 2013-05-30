@@ -54,24 +54,33 @@
                 <script type="text/javascript" src="./wSelect.js"></script>
                 <link rel="Stylesheet" type="text/css" href="./wSelect.css" />
 
-                <select id="demo" data-label="Country:">
+                <label class="wLabel-left">Country:</label>
+                <select id="demo">
                     <option value="">Select a Country</option>
                     <option value="AU" data-icon="./img/AU.png">Australia</option>
                     <option value="CA" data-icon="./img/CA.png" disabled="disabled">Canada</option>
                     <option value="PL" data-icon="./img/PL.png">Poland</option>
                     <option value="TH" data-icon="./img/TH.png">Thailand</option>
-                    <option value="UK" data-icon="./img/UK.png">England (United Kingdom kjf kdjd kfdjf dkljs lfjs lfkj fkdsf jsdlkjs adlfkadjslfkds ajflkadj dlasf kalfsadkj)</option>
+                    <option value="UK" data-icon="./img/UK.png">England (United Kingdom)</option>
                 </select>
             
-                <br/><br/>
+                <br/>
 
-                <select id="demo-multi" multiple="multiple" size="4" data-label="Countries:">
-                    <option value="AU" data-icon="./img/AU.png">Australia</option>
-                    <option value="CA" data-icon="./img/CA.png" disabled="disabled">Canada</option>
-                    <option value="PL" data-icon="./img/PL.png" selected="selected">Poland</option>
-                    <option value="TH" data-icon="./img/TH.png" selected="selected">Thailand</option>
-                    <option value="UK" data-icon="./img/UK.png">England (United Kingdomlfsdjf lkfjs lksdj lfsdakj )</option>
+                <label class="wLabel-left-top">Sports:</label>
+                <select id="demo-multi" multiple="multiple">
+                    <option value="soccer" data-icon="./img/soccer.png">Soccer</option>
+                    <option value="archery" data-icon="./img/archery.png">Archery</option>
+                    <option value="basketball" data-icon="./img/basketball.png">Basketball</option>
+                    <option value="baseball" data-icon="./img/baseball.png">Baseball</option>
+                    <option value="curling" data-icon="./img/curling.png">Curling</option>
+                    <option value="veolleyball" data-icon="./img/volleyball.png">Volleyball</option>
                 </select>
+
+                <style>
+                    .wSelect-multiple {
+                        width: 150px;
+                    }
+                </style>
 
                 <script type="text/javascript">
                     $('select').wSelect();
@@ -85,7 +94,7 @@
                     $('#demo').append('<option value="US" data-icon="./img/US.png">United States of America</option>').wSelect('reset');
                     $('#demo').val('CA').change();
                     
-                    $('#demo-multi').val(['AU', 'PL']).change();
+                    $('#demo-multi').val(['soccer', 'archery']).change();
                 </script>
             </div>
 

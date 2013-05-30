@@ -8,7 +8,7 @@
  * @license         This websanova wSelect jQuery plug-in is dual licensed under the MIT and GPL licenses.
  * @link            http://www.websanova.com
  * @github          http://github.com/websanova/wSelect
- * @version         Version 1.0.0
+ * @version         Version 1.1.0
  *
  ******************************************/
 
@@ -33,7 +33,6 @@
             if (!this.$select) {
                 var _self = this;
 
-                this.createLabel();
                 this.$select = $('<div class="wSelect"><div class="wSelect-arrow"></div></div>');
                 this.$optionsHolder = $('<div class="wSelect-options-holder"></div>');
                 this.$options = $('<div class="wSelect-options"></div>');
@@ -95,20 +94,6 @@
             return this.$select;
         },
 
-        createLabel: function() {
-            var text = this.$el.attr('data-label');
-
-            if (text && text !== '') {
-                var id = this.$el.attr('id') || Math.random() * 100;
-
-                this.$el.attr('id', id);
-                this.$label = $('<label for="' + id + '" class="wLabel wLabel-theme-' + this.options.theme + (this.multiple?' wLabel-multiple':'') + ' wLabel-' + this.options.labelPosition + '"></label>');
-
-                this.setLabel(text);
-                this.$el.before(this.$label);
-            }
-        },
-
         reset: function() {
             var _self = this;
             
@@ -154,9 +139,6 @@
             className = className || 'active';
 
             if (this.options.highlight) {
-                if (this.$label) {
-                    this.$label.addClass('wLabel-' + className);
-                }
                 this.$select.addClass('wSelect-' + className);
             }
         },
@@ -165,9 +147,6 @@
             className = className || 'active';
 
             if (this.options.highlight) {
-                if (this.$label) {
-                    this.$label.removeClass('wLabel-' + className);
-                }
                 this.$select.removeClass('wSelect-' + className);
             }
         },
@@ -175,10 +154,6 @@
         setTheme: function(theme) {
             this.$select.attr('class', this.$select.attr('class').replace(/wSelect-theme-.+\s|wSelect-theme-.+$/, ''));
             this.$select.addClass('wSelect-theme-' + theme);
-        },
-
-        setLabel: function(text) {
-            this.$label.html(text);
         },
 
         setSize: function(size) {
@@ -384,7 +359,6 @@
     $.fn.wSelect.defaults = {
         theme: 'classic',         // theme
         size: '4',                // default number of options to display (overwrite with `size` attr on `select` element)
-        labelPosition: 'left',    // set position for label (left,top)
         highlight: true           // highlight fields when selected
     };
     

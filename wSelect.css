@@ -81,21 +81,6 @@
 .wSelect-option-icon {
 	padding-left: 20px;
 }
-.wLabel-left {
-    display: inline-block;
-    *display: inline;
-    zoom: 1;
-    vertical-align: middle;
-    margin: 0 5px 0px 0;
-    text-align: right;
-}
-.wLabel-left.wLabel-multiple {
-    vertical-align: top;
-}
-.wLabel-top {
-    display: block;
-    margin-left: 3px;
-}
 
 /***********************************
  * Theme - classic
@@ -109,6 +94,7 @@
 	line-height: 20px;
 	min-width: 100px;
 	max-width: 300px;
+	margin-bottom: 7px;
 	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -156,13 +142,31 @@
 	color: #FAFAFA;
 }
 
-/*** label ***/
-.wLabel-theme-classic {
-    width: 70px;
+/***********************************
+ * Labels
+ ***********************************/
+.wLabel-top,
+.wLabel-left,
+.wLabel-left-top {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle;
+    margin-bottom: 7px;
     font-size: 10px;
+    line-height: 16px;
     color: #999;
 }
-.wLabel-theme-classic.wLabel-hover,
-.wLabel-theme-classic.wLabel-active {
-    color: rgb(82, 168, 236);
+.wLabel-left,
+.wLabel-left-top {
+    width: 70px;
+    text-align: right;
+}
+.wLabel-top {
+    display: block;
+    margin: 0 0 0 3px;
+}
+.wLabel-left-top {
+    vertical-align: top;
+    margin-top: 3px;
 }
