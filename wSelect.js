@@ -8,7 +8,7 @@
  * @license         This websanova wSelect jQuery plug-in is dual licensed under the MIT and GPL licenses.
  * @link            http://www.websanova.com
  * @github          http://github.com/websanova/wSelect
- * @version         Version 1.1.0
+ * @version         Version 1.1.1
  *
  ******************************************/
 

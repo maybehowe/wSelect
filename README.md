@@ -5,8 +5,10 @@ A jQuery plugin for fully customizable and clean looking select boxes.  These ar
 * [View the wSelect demo](http://wselect.websanova.com)
 * [Download the lastest version of wSelect](https://github.com/websanova/wSelect/tags)
 
+
 ## Related Plugins
 
+* [wForm](http://wform.websanova.com) - See all the form plugins working together.
 * [wInput](http://winput.websanova.com) - Input plugin that handles backwards compatability for placeholders.
 * [wCheck](http://wcheck.websanova.com) - Radio and checkbox input plugin.
 * [wChar](http://wchar.websanova.com) - On the fly character counter for inputs.
