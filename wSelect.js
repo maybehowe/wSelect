@@ -26,7 +26,7 @@
         this.widthSet = false;
 
         this.generate();
-    };
+    }
     
     Select.prototype = {
         generate: function() {
@@ -56,7 +56,7 @@
 
                     if (!_self.multiple) { _self.onClick(e); }
                     _self.onFocus();
-                }
+                };
 
                 if (this.multiple) {
                     this.$select.addClass('wSelect-multiple');
@@ -179,7 +179,7 @@
     function Option(el, wSelect) {
         this.$el = $(el);
         this.wSelect = wSelect;
-    };
+    }
 
     Option.prototype = {
         generate: function() {
@@ -187,7 +187,7 @@
             if (!this.$option) {
                 var icon = this.$el.attr('data-icon');
 
-                this.$option = $('<div class="wSelect-option"></div>')
+                this.$option = $('<div class="wSelect-option"></div>');
                 this.$value = $('<div class="wSelect-option-value"></div>');
                 this.$option.append(this.$value);
 
@@ -304,7 +304,7 @@
             
             this.$option.detach().show();
         }
-    }
+    };
 
     /*****************************************************************
      * fn.wSelect
