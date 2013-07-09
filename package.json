@@ -1,7 +1,7 @@
 {
   "name": "wSelect",
   "title": "wSelect jQuery Select Box Plugin",
-  "version": "1.1.4",
+  "version": "1.2.0",
   "description": "A jQuery plugin for fully customizable and clean looking select boxes.  These are div based select boxes that will allow us to do additional things like adding icons to our options.",
   "main": "wSelect.js",
   "repository": {

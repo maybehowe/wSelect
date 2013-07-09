@@ -89,7 +89,7 @@
 
         <div class="content-box">
             <label class="wLabel-left">Country:</label>
-            <select id="demo">
+            <select id="demo" tabindex="1">
                 <option value="">Select a Country</option>
                 <option value="AU" data-icon="./img/AU.png">Australia</option>
                 <option value="CA" data-icon="./img/CA.png" disabled="disabled">Canada</option>
@@ -101,7 +101,7 @@
             <br/>
 
             <label class="wLabel-left-top">Sports:</label>
-            <select id="demo-multi" multiple="multiple">
+            <select id="demo-multi" tabindex="2" multiple="multiple">
                 <option value="soccer" data-icon="./img/soccer.png">Soccer</option>
                 <option value="archery" data-icon="./img/archery.png">Archery</option>
                 <option value="basketball" data-icon="./img/basketball.png">Basketball</option>
@@ -120,7 +120,7 @@
         <script type="text/javascript">
             $('select').wSelect();
 
-            $('#demo').change(function() {
+            $('#demo, #demo-multi').change(function() {
                 console.log($(this).val());
             });
 

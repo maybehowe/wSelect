@@ -1,17 +1,3 @@
-/******************************************
- * Websanova.com
- *
- * Resources for web entrepreneurs
- *
- * @author          Websanova
- * @copyright       Copyright (c) 2012 Websanova.
- * @license         This websanova wSelect jQuery plug-in is dual licensed under the MIT and GPL licenses.
- * @link            http://www.websanova.com
- * @github          http://github.com/websanova/wSelect
- * @version         Version 1.1.3
- *
- ******************************************/
-
 (function($) {
     
     /*****************************************************************
@@ -55,7 +41,7 @@
                     });
 
                     if (!_self.multiple) { _self.onClick(e); }
-                    _self.onFocus();
+                    _self.$el.focus();
                 };
 
                 if (this.multiple) {
@@ -66,7 +52,10 @@
                     this.$selected = $('<div class="wSelect-selected"></div>');
                     this.$select.append(this.$selected);
                     this.$select.click(click);
-                    this.$optionsHolder.click(function(e){ e.stopPropagation(); });
+                    this.$optionsHolder.click(function(e) {
+                        e.stopPropagation();
+                        _self.$el.focus();
+                    });
                 }
 
                 this.$select.hover(
@@ -74,7 +63,11 @@
                     function(){ _self.onBlur('hover'); }
                 );
 
-                this.$el.change(function(){ _self.change(); });
+                this.$el.addClass('wSelect-el')
+                .change(function() { _self.change(); })
+                .focus(function() { _self.onFocus(); })
+                .keydown(function(e) { _self.keydown(e); })
+                .keyup(function(e) { _self.keyup(e); });
                 
                 $(document).click(function() {
                     if (!_self.multiple) { _self.$optionsHolder.hide(); }
@@ -88,7 +81,7 @@
                 this.reset();
                 this.$optionsHolder.append(this.$options);
                 this.$select.append(this.$optionsHolder);
-                this.$el.after(this.$select).hide();
+                this.$el.after(this.$select);//.hide();
             }
 
             return this.$select;
@@ -118,6 +111,38 @@
             this.$el.children(':selected').each(function() {
                 $(this).data('wSelect-option').select();
             });
+        },
+
+        keydown: function(e) {
+            // tab
+            if (e.keyCode === 9) {
+                this.$optionsHolder.hide();
+                this.onBlur();
+            }
+        },
+
+        keyup: function(e) {
+            // enter
+            if (e.keyCode === 13) {
+                this.$optionsHolder.hide();
+            }
+            // left, up, right, down
+            else if (e.keyCode >= 37 && e.keyCode <= 40) {
+                this.change();
+
+                var $option = this.$options.find('.wSelect-option-selected:last'),
+                    scrollTop = this.$options.scrollTop(),
+                    top = $option.position().top + scrollTop,
+                    optionsHeight = this.$options.height(),
+                    optionHeight = $option.outerHeight(true);
+
+                if (top - scrollTop < 0) {
+                    this.$options.scrollTop(top);
+                }
+                else if (top + optionHeight - scrollTop > optionsHeight) {
+                    this.$options.scrollTop(top - optionsHeight + optionHeight);
+                }
+            }
         },
 
         onClick: function(e) {
@@ -232,7 +257,7 @@
                     this.wSelect.$selected.css('backgroundImage', '');
                 }
 
-                this.wSelect.$optionsHolder.hide();
+                //if(!this.wSelect.focus) { this.wSelect.$optionsHolder.hide(); }
                 this.wSelect.$selected.html(this.$el.html());
             }
 
@@ -285,6 +310,7 @@
             }
             else {
                 selVal =  this.$el.val();
+                this.wSelect.$optionsHolder.hide();
                 this.wSelect.activeOpt = this;
             }
 
