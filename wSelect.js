@@ -90,13 +90,10 @@
         reset: function() {
             var _self = this;
             
-            this.$options.children().detach();
+            this.$options.children().remove();
             this.$el.children().each(function() {
-                var option = $.data(this, 'wSelect-option');
-                if (!option) {
-                    option = new Option(this, _self);
-                    $.data(this, 'wSelect-option', option);
-                }
+                var option = new Option(this, _self);
+                $.data(this, 'wSelect-option', option);
 
                 _self.$options.append(option.generate());
             });

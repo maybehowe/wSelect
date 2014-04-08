@@ -72,6 +72,10 @@
         $('#demo').val('CA').change();
         
         $('#demo-multi').val(['soccer', 'archery']).change();
+
+        // Testing append from one select to another.
+        $('#demo option:last').appendTo('#demo-multi');
+        $('#demo, #demo-multi').wSelect('reset');
       </script>
     </div>
   </div>
